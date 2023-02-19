@@ -1,0 +1,22 @@
+CREATE TABLE `Predict` (
+  `idPredict` int NOT NULL AUTO_INCREMENT,
+  `Profile_idProfile` int NOT NULL,
+  `Profile_name` varchar(15) NOT NULL,
+  `StockPrice_code` int NOT NULL,
+  `StockPrice_brand` varchar(30) NOT NULL,
+  `takeProfit` double DEFAULT NULL COMMENT '利確の値',
+  `gains` double DEFAULT NULL COMMENT '利確した時にもらえる金額',
+  `stopLoss` double DEFAULT NULL COMMENT '損切りする値',
+  `loss` double DEFAULT NULL COMMENT '損切りした時の損失額',
+  `actFlag` int DEFAULT NULL COMMENT 'フラグ（1で確認、0で何もしない）',
+  `createdDay` date DEFAULT NULL,
+  `comment` tinytext,
+  `intputFlag` int DEFAULT NULL COMMENT 'inputFlagが1で実行、0で何もしない。\\n実行内容：予想した翌日に始値を取得し予想した値から利確値、損切り値を求める。',
+  `resultPrice` int DEFAULT NULL,
+  PRIMARY KEY (`idPredict`),
+  UNIQUE KEY `idPredict_UNIQUE` (`idPredict`),
+  KEY `fk_Predict_Profile_idx` (`Profile_idProfile`,`Profile_name`),
+  KEY `fk_Predict_StockPrice1_idx` (`StockPrice_code`,`StockPrice_brand`),
+  CONSTRAINT `fk_Predict_Profile` FOREIGN KEY (`Profile_idProfile`, `Profile_name`) REFERENCES `Profile` (`idProfile`, `name`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_Predict_StockPrice1` FOREIGN KEY (`StockPrice_code`, `StockPrice_brand`) REFERENCES `StockPrice` (`code`, `brand`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;

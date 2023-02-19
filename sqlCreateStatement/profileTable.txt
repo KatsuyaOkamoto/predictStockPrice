@@ -1,0 +1,7 @@
+CREATE TABLE `Profile` (
+  `idProfile` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(15) NOT NULL,
+  PRIMARY KEY (`idProfile`,`name`),
+  UNIQUE KEY `name_UNIQUE` (`name`),
+  UNIQUE KEY `idProfile_UNIQUE` (`idProfile`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;

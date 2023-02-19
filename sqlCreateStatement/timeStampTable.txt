@@ -1,0 +1,3 @@
+CREATE TABLE `TimeStampTable` (
+  `lastUpdate` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

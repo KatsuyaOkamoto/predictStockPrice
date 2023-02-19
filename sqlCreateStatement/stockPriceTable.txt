@@ -1,0 +1,14 @@
+CREATE TABLE `StockPrice` (
+  `code` int NOT NULL,
+  `brand` varchar(30) NOT NULL,
+  `openingPrice` double DEFAULT NULL,
+  `closingPrice` double DEFAULT NULL,
+  `highPrice` double DEFAULT NULL,
+  `highPriceTime` time DEFAULT NULL,
+  `lowPrice` double DEFAULT NULL,
+  `lowPriceTime` time DEFAULT NULL,
+  `updateDay` date DEFAULT NULL,
+  PRIMARY KEY (`code`,`brand`),
+  UNIQUE KEY `coad_UNIQUE` (`code`),
+  UNIQUE KEY `brand_UNIQUE` (`brand`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
