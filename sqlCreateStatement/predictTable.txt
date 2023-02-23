@@ -11,7 +11,7 @@ CREATE TABLE `Predict` (
   `actFlag` int DEFAULT NULL COMMENT 'フラグ（1で確認、0で何もしない）',
   `createdDay` date DEFAULT NULL,
   `comment` tinytext,
-  `intputFlag` int DEFAULT NULL COMMENT 'inputFlagが1で実行、0で何もしない。\\n実行内容：予想した翌日に始値を取得し予想した値から利確値、損切り値を求める。',
+  `intputFlag` int DEFAULT NULL COMMENT 'inputFlagが1で実行、0で何もしない。\\n実行内容：予想した翌日に始値を取得し予想した値から利確値、損切りした時の利益,損失を求める。',
   `resultPrice` int DEFAULT NULL,
   PRIMARY KEY (`idPredict`),
   UNIQUE KEY `idPredict_UNIQUE` (`idPredict`),
