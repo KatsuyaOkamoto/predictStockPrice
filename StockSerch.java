@@ -1,4 +1,4 @@
-package Inago;
+package predictStockPrice;
 //株価を取得するためにネットからデータを拾う。
 
 import java.io.IOException;
